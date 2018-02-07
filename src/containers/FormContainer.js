@@ -1,5 +1,6 @@
 import React from 'react';
 import InfoBoxes from '../components/InfoBoxes.js'
+import Geocoder from 'react-native-geocoding';
 
 class FormContainer extends React.Component {
  constructor(props) {
