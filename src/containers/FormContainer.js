@@ -8,8 +8,8 @@ class FormContainer extends React.Component {
 
   this.state = {
    address: 'edinburgh',
-   lat: null,
-   lng: null
+   lat: "Latitude",
+   lng: "Longitude"
   }
   this.updateAddress = this.updateAddress.bind(this);
   this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -50,7 +50,7 @@ handleKeyPress(evt) {
     <ul>
      <li><br/><hr className="style1"/></li>
        <li><input type="text" placeholder="Address" onKeyPress={ this.handleKeyPress } onChange={ this.updateAddress }/></li>
-       <InfoBoxes/>
+       <InfoBoxes lat={ this.state.lat} lng={ this.state.lng }/>
     </ul>
    </form>
   )}
