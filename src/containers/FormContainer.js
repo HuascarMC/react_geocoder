@@ -8,30 +8,40 @@ class FormContainer extends React.Component {
 
   this.state = {
    address: 'edinburgh',
-   api_key: 'AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6b',
+   lat: null,
+   lng: null
   }
   this.updateAddress = this.updateAddress.bind(this);
-  Geocoder.setApiKey(this.state.api_key);
+  this.handleKeyPress = this.handleKeyPress.bind(this);
+  this.findCoordinates = this.findCoordinates.bind(this);
 }
 
  updateAddress(evt) {
-   if (evt.key === 'Enter') {
     this.setState({
      address: evt.target.value
     })
-    console.log(evt.target.value);
-   }
+    console.log(this.state.address);
  }
 
+handleKeyPress(evt) {
+  if (evt.key === 'Enter') {
+   this.findCoordinates();
+  }
+}
 
- findCoordinates(address) {
-   Geocoder.getFromLocation(address).then(
-     json => {
-     console.log(json.results);
-   },
-     error => {
-      console.log(error);
-     });
+ findCoordinates() {
+
+  Geocoder.setApiKey('AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6bk');
+
+  Geocoder.getFromLocation(this.state.address).then(
+  json => {
+   console.log(json.results);
+
+  },
+  error => {
+   console.log(error);
+  }
+  );
  }
 
  render() {
@@ -39,7 +49,7 @@ class FormContainer extends React.Component {
    <form className="geocoder-form">
     <ul>
      <li><br/><hr className="style1"/></li>
-       <li><input type="text" placeholder="Address" onKeyPress={ this.updateAddress }/></li>
+       <li><input type="text" placeholder="Address" onKeyPress={ this.handleKeyPress } onChange={ this.updateAddress }/></li>
        <InfoBoxes/>
     </ul>
    </form>
