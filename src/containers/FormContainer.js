@@ -9,7 +9,8 @@ class FormContainer extends React.Component {
   this.state = {
    address: 'edinburgh',
    lat: "Latitude",
-   lng: "Longitude"
+   lng: "Longitude",
+   error: ""
   }
   this.updateAddress = this.updateAddress.bind(this);
   this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -29,18 +30,26 @@ handleKeyPress(evt) {
   }
 }
 
+handleError() {
+ this.setState({
+  error: "Not found"
+ })
+}
+
  findCoordinates() {
 
   Geocoder.setApiKey('AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6bk');
 
   Geocoder.getFromLocation(this.state.address).then(
-  json => {
-   console.log(json.results);
-
-  },
-  error => {
-   console.log(error);
-  }
+   json => {
+    console.log(json.results);
+    var location = json.results[0].geometry.location;
+    this.setState({lat: location.lat, lng: location.lng, error: ""});
+   },
+   error => {
+    console.log(error);
+    this.handleError();
+   }
   );
  }
 
@@ -48,6 +57,7 @@ handleKeyPress(evt) {
   return(
    <form className="geocoder-form">
     <ul>
+     <p>{ this.state.error }</p>
      <li><br/><hr className="style1"/></li>
        <li><input type="text" placeholder="Address" onKeyPress={ this.handleKeyPress } onChange={ this.updateAddress }/></li>
        <InfoBoxes lat={ this.state.lat} lng={ this.state.lng }/>
