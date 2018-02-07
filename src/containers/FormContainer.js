@@ -10,6 +10,7 @@ class FormContainer extends React.Component {
   return(
    <form className="geocoder-form">
     <ul>
+     <li><br/><hr className="style1"/></li>
        <li><input type="text" placeholder="Address"/></li>
        <InfoBoxes/>
     </ul>
