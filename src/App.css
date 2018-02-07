@@ -1,1 +1,37 @@
+.geocoder-form {
+ background-color: white;
+ display: flex;
+ align-items: center;
+ width: 800px;
+ padding: 100px;
+ padding-bottom: 0px;
+ border-radius: 7px;
+ margin: 180px auto;
+}
 
+ul {
+  text-align: left;
+  font-size: 12px;
+  margin: 0px;
+  display: inline-block;
+  list-style: none;
+}
+
+input {
+    vertical-align: top;
+    margin: 15px;
+    border: 1.2px solid rgb(203, 218, 222);
+    border-radius: 5px;
+    padding: 12px;
+    width: 700px;
+    font-size: 12px;
+}
+
+.br-line {
+ 	border-top: 1px #e9e9e9;
+  margin-bottom: 20px;
+}
+
+.hidden-btn {
+ visibility: hidden;
+}
