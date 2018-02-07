@@ -7,7 +7,7 @@ class FormContainer extends React.Component {
   super(props);
 
   this.state = {
-   address: null,
+   address: 'Edinburgh',
    api_key: 'AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6b',
   }
 }
@@ -29,7 +29,7 @@ class FormContainer extends React.Component {
    <form className="geocoder-form">
     <ul>
      <li><br/><hr className="style1"/></li>
-       <li><input type="text" placeholder="Address"/></li>
+       <li><input type="text" placeholder="Address" onChange={this.findCoordinates(this.state.address, this.state.api_key)}/></li>
        <InfoBoxes/>
     </ul>
    </form>
