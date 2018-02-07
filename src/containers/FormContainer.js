@@ -7,7 +7,7 @@ class FormContainer extends React.Component {
   super(props);
 
   this.state = {
-   address: 'edinburgh',
+   address: '',
    lat: "Latitude",
    lng: "Longitude",
    error: ""
@@ -21,7 +21,6 @@ class FormContainer extends React.Component {
     this.setState({
      address: evt.target.value
     })
-    console.log(this.state.address);
  }
 
 handleKeyPress(evt) {
@@ -57,7 +56,7 @@ handleError() {
   return(
    <form className="geocoder-form">
     <ul>
-     <p>{ this.state.error }</p>
+     <p id="error">{ this.state.error }</p>
      <li><br/><hr className="style1"/></li>
        <li><input type="text" placeholder="Address" onKeyPress={ this.handleKeyPress } onChange={ this.updateAddress }/></li>
        <InfoBoxes lat={ this.state.lat} lng={ this.state.lng }/>

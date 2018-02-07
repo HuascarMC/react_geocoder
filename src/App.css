@@ -32,6 +32,12 @@ input {
   margin-bottom: 20px;
 }
 
+#error{
+ color: rgb(145, 46, 28);
+ font-size: 15px;
+ font-weight: bold;
+}
+
 .hidden-btn {
  visibility: hidden;
 }
