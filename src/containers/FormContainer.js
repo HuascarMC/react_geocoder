@@ -5,7 +5,24 @@ import Geocoder from 'react-native-geocoding';
 class FormContainer extends React.Component {
  constructor(props) {
   super(props);
+
+  this.state = {
+   address: null,
+   api_key: 'AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6b',
+  }
 }
+
+ findCoordinates(address, api_key) {
+   Geocoder.setApiKey('AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6bk');
+
+   Geocoder.getFromLocation(address).then(
+     json => {
+     console.log(json.results);
+   },
+     error => {
+      console.log(error);
+     });
+ }
 
  render() {
   return(
