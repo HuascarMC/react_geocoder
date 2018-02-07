@@ -7,10 +7,18 @@ class FormContainer extends React.Component {
   super(props);
 
   this.state = {
-   address: 'Edinburgh',
+   address: null,
    api_key: 'AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6b',
   }
+  this.updateAddress = this.updateAddress.bind(this);
 }
+
+ updateAddress(evt) {
+  this.setState({
+   address: evt.target.value
+  })
+  console.log(this.state.address);
+ }
 
  findCoordinates(address, api_key) {
    Geocoder.setApiKey('AIzaSyDFgBkCpgmp_RGfRAHqZcD4fAz2qzCn6bk');
@@ -29,7 +37,7 @@ class FormContainer extends React.Component {
    <form className="geocoder-form">
     <ul>
      <li><br/><hr className="style1"/></li>
-       <li><input type="text" placeholder="Address" onChange={this.findCoordinates(this.state.address, this.state.api_key)}/></li>
+       <li><input type="text" placeholder="Address" onChange={this.updateAddress}/></li>
        <InfoBoxes/>
     </ul>
    </form>
