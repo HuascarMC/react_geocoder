@@ -1,4 +1,5 @@
 import React from 'react';
+import InfoBoxes from '../components/InfoBoxes.js'
 
 class FormContainer extends React.Component {
  constructor(props) {
@@ -10,7 +11,7 @@ class FormContainer extends React.Component {
    <form className="geocoder-form">
     <ul>
        <li><input type="text" placeholder="Address"/></li>
-
+       <InfoBoxes/>
     </ul>
    </form>
   )}
