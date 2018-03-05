@@ -1,3 +1,6 @@
+Simple web-app with an interface using Google Maps API and react to get coordinates from an address.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
